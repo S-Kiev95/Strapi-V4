@@ -4,7 +4,8 @@
   "info": {
     "singularName": "producto",
     "pluralName": "productos",
-    "displayName": "Producto"
+    "displayName": "Producto",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -43,6 +44,12 @@
     },
     "disponibilidad": {
       "type": "boolean"
+    },
+    "precioUnidad": {
+      "type": "decimal"
+    },
+    "unidades": {
+      "type": "integer"
     }
   }
 }

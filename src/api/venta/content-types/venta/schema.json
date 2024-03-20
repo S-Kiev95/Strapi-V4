@@ -4,7 +4,8 @@
   "info": {
     "singularName": "venta",
     "pluralName": "ventas",
-    "displayName": "Venta"
+    "displayName": "Venta",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,6 +22,9 @@
     },
     "productos": {
       "type": "json"
+    },
+    "total": {
+      "type": "decimal"
     }
   }
 }

@@ -825,6 +825,7 @@ export interface ApiProductoProducto extends Schema.CollectionType {
     singularName: 'producto';
     pluralName: 'productos';
     displayName: 'Producto';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -840,6 +841,8 @@ export interface ApiProductoProducto extends Schema.CollectionType {
     > &
       Attribute.Required;
     disponibilidad: Attribute.Boolean;
+    precioUnidad: Attribute.Decimal;
+    unidades: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -864,6 +867,7 @@ export interface ApiVentaVenta extends Schema.CollectionType {
     singularName: 'venta';
     pluralName: 'ventas';
     displayName: 'Venta';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -876,6 +880,7 @@ export interface ApiVentaVenta extends Schema.CollectionType {
       'api::cliente.cliente'
     >;
     productos: Attribute.JSON;
+    total: Attribute.Decimal;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
