@@ -362,117 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiClienteCliente extends Schema.CollectionType {
-  collectionName: 'clientes';
-  info: {
-    singularName: 'cliente';
-    pluralName: 'clientes';
-    displayName: 'Cliente';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    nombre: Attribute.String & Attribute.DefaultTo<'nuevo'>;
-    direccion: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::cliente.cliente',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::cliente.cliente',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiProductoProducto extends Schema.CollectionType {
-  collectionName: 'productos';
-  info: {
-    singularName: 'producto';
-    pluralName: 'productos';
-    displayName: 'Producto';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    nombre: Attribute.String & Attribute.Required;
-    precioBase: Attribute.Decimal & Attribute.Required;
-    precioVenta: Attribute.Decimal & Attribute.Required;
-    imagen: Attribute.String;
-    stock: Attribute.BigInteger;
-    categoria: Attribute.Enumeration<
-      ['comestible', 'higiene', 'medicamento', 'todas']
-    > &
-      Attribute.Required;
-    disponibilidad: Attribute.Boolean;
-    precioUnidad: Attribute.Decimal;
-    unidades: Attribute.Integer;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::producto.producto',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::producto.producto',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiVentaVenta extends Schema.CollectionType {
-  collectionName: 'ventas';
-  info: {
-    singularName: 'venta';
-    pluralName: 'ventas';
-    displayName: 'Venta';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    fecha: Attribute.Date;
-    cliente: Attribute.Relation<
-      'api::venta.venta',
-      'oneToOne',
-      'api::cliente.cliente'
-    >;
-    productos: Attribute.JSON;
-    total: Attribute.Decimal;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::venta.venta',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::venta.venta',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -909,9 +798,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::cliente.cliente': ApiClienteCliente;
-      'api::producto.producto': ApiProductoProducto;
-      'api::venta.venta': ApiVentaVenta;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
